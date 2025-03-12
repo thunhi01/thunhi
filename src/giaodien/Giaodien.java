@@ -9,7 +9,7 @@ public class Giaodien {
         JFrame frame = new JFrame("Máy Tính Đơn Giản");  
         frame.setSize(300, 250);  
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
-        frame.setLayout(new GridLayout(5, 2, 10, 10));  
+        frame.setLayout(new GridLayout(4, 2, 10, 10));  
         
         // Tạo các thành phần giao diện  
         JLabel labelA = new JLabel("A:");  
@@ -29,24 +29,12 @@ public class Giaodien {
             @Override  
             public void actionPerformed(ActionEvent e) {  
                 try {  
+                    // Lấy giá trị từ input  
                     double a = Double.parseDouble(textA.getText());  
                     double b = Double.parseDouble(textB.getText());  
+                    // Thực hiện phép cộng  
                     double result = a + b;  
-                    resultField.setText(String.valueOf(result));  
-                } catch (NumberFormatException ex) {  
-                    resultField.setText("Vui lòng nhập số hợp lệ");  
-                }  
-            }  
-        });  
-
-        // Thêm hành động cho nút "Trừ"  
-        btnSub.addActionListener(new ActionListener() {  
-            @Override  
-            public void actionPerformed(ActionEvent e) {  
-                try {  
-                    double a = Double.parseDouble(textA.getText());  
-                    double b = Double.parseDouble(textB.getText());  
-                    double result = a - b;  
+                    // Hiển thị kết quả  
                     resultField.setText(String.valueOf(result));  
                 } catch (NumberFormatException ex) {  
                     resultField.setText("Vui lòng nhập số hợp lệ");  
@@ -59,16 +47,57 @@ public class Giaodien {
             @Override  
             public void actionPerformed(ActionEvent e) {  
                 try {  
+                    // Lấy giá trị từ input  
                     double a = Double.parseDouble(textA.getText());  
                     double b = Double.parseDouble(textB.getText());  
+                    // Thực hiện phép nhân  
                     double result = a * b;  
+                    // Hiển thị kết quả  
                     resultField.setText(String.valueOf(result));  
                 } catch (NumberFormatException ex) {  
                     resultField.setText("Vui lòng nhập số hợp lệ");  
                 }  
             }  
         });  
-        
+         // Thêm hành động cho nút "Tru"  
+        btnSub.addActionListener(new ActionListener() {  
+            @Override  
+            public void actionPerformed(ActionEvent e) {  
+                try {  
+                    // Lấy giá trị từ input  
+                    double a = Double.parseDouble(textA.getText());  
+                    double b = Double.parseDouble(textB.getText());  
+                    // Thực hiện phép nhân  
+                    double result = a - b;  
+                    // Hiển thị kết quả  
+                    resultField.setText(String.valueOf(result));  
+                } catch (NumberFormatException ex) {  
+                    resultField.setText("Vui lòng nhập số hợp lệ");  
+                }  
+            }  
+        });  
+         // Thêm hành động cho nút "Chia"  
+        btnDiv.addActionListener(new ActionListener() {  
+            @Override  
+            public void actionPerformed(ActionEvent e) {  
+                try {  
+                    // Lấy giá trị từ input  
+                    double a = Double.parseDouble(textA.getText());  
+                    double b = Double.parseDouble(textB.getText());  
+                     
+                    if (b == 0) {  
+                        resultField.setText("Không thể chia cho 0");  
+                    } else {  
+                        double result = a / b;  
+                        resultField.setText(String.valueOf(result));  
+                    }   
+                    // Hiển thị kết quả  
+                    
+                } catch (NumberFormatException ex) {  
+                    resultField.setText("Vui lòng nhập số hợp lệ");  
+                }  
+            }  
+        });  
         // Thêm thành phần vào frame  
         frame.add(labelA);  
         frame.add(textA);  
