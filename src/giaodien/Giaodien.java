@@ -42,6 +42,24 @@ public class Giaodien {
             }  
         });  
         
+        // Thêm hành động cho nút "Nhân"  
+        btnMul.addActionListener(new ActionListener() {  
+            @Override  
+            public void actionPerformed(ActionEvent e) {  
+                try {  
+                    // Lấy giá trị từ input  
+                    double a = Double.parseDouble(textA.getText());  
+                    double b = Double.parseDouble(textB.getText());  
+                    // Thực hiện phép nhân  
+                    double result = a * b;  
+                    // Hiển thị kết quả  
+                    resultField.setText(String.valueOf(result));  
+                } catch (NumberFormatException ex) {  
+                    resultField.setText("Vui lòng nhập số hợp lệ");  
+                }  
+            }  
+        });  
+        
         // Thêm thành phần vào frame  
         frame.add(labelA);  
         frame.add(textA);  
@@ -57,4 +75,4 @@ public class Giaodien {
         // Hiển thị giao diện  
         frame.setVisible(true);  
     }  
-}  
+}
